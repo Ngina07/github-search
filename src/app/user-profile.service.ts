@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-// import 'rxjs/add/operator/map';
+import { environment } from '../environments/environment';
+import { Http } from '@angular/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,39 @@ import { HttpClient} from '@angular/common/http';
 export class UserProfileService {
 
   public username: string;
-  private apiKey: '5de9e5e59aaf5eceb6ea1b9007d0c4692b182365';
-
-  constructor(private http: HttpClient) {
-    console.log("This service is now ready");
-    this.username = 'Ngina07';
+  userData: any;
+  repoData: any;
+  constructor(private http: Http) {
+  }
+  getGithubUser(username) {
+    console.log(username)
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(environment.apiUrl + 'users/' + username + '?access_token=' + environment.apiKey).toPromise().then(response => {
+        this.userData = response.json()
+        resolve(this.userData)
+      },
+        error => {
+          console.log(error)
+          reject(error)
+        })
+    })
+    return promise
+  }
+  getGithubRepos(username) {
+    console.log(username)
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(environment.apiUrl + 'users/' + username + '/repos?access_token=' + environment.apiKey).toPromise().then(response => {
+        this.repoData = response.json()
+        resolve(this.repoData)
+      },
+        error => {
+          console.log(error)
+          reject(error)
+        })
+    })
+    return promise
   }
 }
+
+
+
