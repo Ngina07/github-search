@@ -1,3 +1,8 @@
 body {
     background-color: gray;
 }
+#myprofile {
+ padding-left: 200px;
+ color: white;
+ font-weight:200px;
+}
