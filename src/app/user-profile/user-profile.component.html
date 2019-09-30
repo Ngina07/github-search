@@ -1,1 +1,42 @@
-<p>user-profile works!</p>
+<body>
+    <div class="homeSection">
+        <div class="container-fluid text-center homeHeader"></div>
+        <!-- ============= profile pic and bio ================= -->
+        <div class="container ghProfileDetails">
+            <div class="row align-items-center homeContent">
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <img src={{rkGhProfile.avatar_url}} alt="RK Nyra Profile Pic" class="rounded-circle profilePic">
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 rkDetails">
+                    <h2>{{rkGhProfile.name}}</h2>
+                    <div class="rkDetailsBlack">
+                        <div>{{rkGhProfile.bio}}</div>
+                        <div>{{rkGhProfile.location}}</div>
+                        <div>
+                            <a href={{rkGhProfile.html_url}} target="_blank">{{rkGhProfile.url}}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============= repositories ================= -->
+        <div class="container">
+            <div class="row align-items-center ">
+                <div class="col-lg-12 col-md-12 col-sm-12 repositories">
+                    <div class="repoHeading">
+                        <h2>Repositories: {{rkGhProfile.public_repos}}</h2>
+                    </div>
+                    <div class="card" *ngFor='let repo of rkGhRepos'>
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h4> <a href={{repo.html_url}} target="_blank">{{repo.name}}</a></h4>
+                            </div>
+                            <div class="card-text">{{repo.description}}</div>
+                            <div class="card-text language-color">{{repo.language}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-search></app-search>
+</body>
