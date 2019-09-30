@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
   searchUser(user) {
-    console.log('user search----', user)
+    console.log('Searches user', user)
     this.getUserDetails(user)
   }
   getUserDetails(user) {
@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
       this.user = response
     })
     this.gitHubService.getGithubRepos(user).then((response) => {
-      console.log('-------===00', response)
+      console.log('userRepo', response)
       this.repos = response
     })
   }
