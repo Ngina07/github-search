@@ -11,6 +11,7 @@ import { SearchComponent } from './search/search.component';
 import { HttpModule } from '@angular/http';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { from } from 'rxjs';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { from } from 'rxjs';
     UserProfileComponent,
     SearchComponent,
     NotFoundComponent,
+    NavbarComponent,
     
   ],
   imports: [
