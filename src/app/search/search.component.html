@@ -40,9 +40,9 @@
                         <div class="card" *ngFor='let repo of repos' id= "usercards">
                             <div class="card-body">
                                 <div class="card-text">
-                                    <h4> <a href={{repo.html_url}} target="_blank">{{repo.name}}</a></h4>
+                                    <h4 appHighlight> <a href={{repo.html_url}} target="_blank">{{repo.name}}</a></h4>
                                 </div>
-                                <div class="card-text" appHighlight>{{repo.description}}</div>
+                                <div class="card-text">{{repo.description}}</div>
                                 <div class="card-text language-color">{{repo.language}}</div>
                             </div>
                         </div>
