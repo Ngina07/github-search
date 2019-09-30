@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
  
-  rkGhProfile: any;
-  rkGhRepos: any;
+  myProfile: any;
+  myRepos: any;
   totalRepos: number;
   username = 'Ngina07';
   constructor(
@@ -25,13 +25,13 @@ export class UserProfileComponent implements OnInit {
   getMyProfile(){
       this.userprofileservice.getGithubUser(this.username).then((response)=>{
         console.log('Ngina Profile.----------------', response)
-        this.rkGhProfile = response;
+        this.myProfile = response;
       })
     }
   getMyRepos() {
       this.userprofileservice.getGithubRepos(this.username).then((response) => {
         console.log('Ngina Repo.----------------', response)
-        this.rkGhRepos = response;
+        this.myRepos = response;
       })
     }
  }

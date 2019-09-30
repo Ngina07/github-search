@@ -1,46 +1,50 @@
-<div class="jumbotron searchBar">
-    <div class="container ">
-        <div class='text-center'>
-            <h1 class="display-4">GitHub Search</h1>
-            <hr class="my-4">
-            <form class="form-inline searchForm">
-                <input class="form-control mr-lg-1" type="search" size="44" placeholder="Explore:  Search by GitHub users" aria-label="Search" [(ngModel)]="username" name="username" id="username" (keyup)="searchUser($event.target.value)">
-                <!-- <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"> </button> -->
-            </form>
-        </div>
-        <div class="homeSection" *ngIf="user">
-            <div class="container-fluid text-center homeHeader"></div>
-            <!-- ============= profile pic and bio ================= -->
-            <div class="container ghProfileDetails">
-                <div class="row align-items-center homeContent">
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <img src={{user.avatar_url}} alt="RK Nyra Profile Pic" class="rounded-circle profilePic">
-                    </div>
-                    <div class="col-lg-9 col-md-9 col-sm-12 rkDetails">
-                        <h2>{{user.name}}</h2>
-                        <div class="rkDetailsBlack">
-                            <div>{{user.bio}}</div>
-                            <div>{{user.location}}</div>
-                            <div>
-                                <a href={{user.html_url}} target="_blank">{{user.url}}</a></div>
+<body>
+    <div class="jumbotron searchBar">
+        <div class="container ">
+            <div class='text-center'>
+                <h1 class="display-4">GitHub Search</h1>
+                <hr class="my-4">
+                <form class="form-inline searchForm">
+                    <input  class="form-control mr-lg-1" type="search" size="44"
+                        placeholder="Explore:  Search by GitHub users" aria-label="Search" [(ngModel)]="username"
+                        name="username" id="username" (keyup)="searchUser($event.target.value)">
+                    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"> </button> -->
+                </form>
+            </div>
+            <div class="homeSection" *ngIf="user">
+                <div class="container-fluid text-center homeHeader"></div>
+                <!-- ============= profile pic and bio ================= -->
+                <div class="container ghProfileDetails">
+                    <div class="row align-items-center homeContent">
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <img src={{user.avatar_url}} alt="User Profile Pic" class="rounded-circle profilePic">
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12 userDetails">
+                            <h2>{{user.name}}</h2>
+                            <div class="myDetailsBlack">
+                                <div>{{user.bio}}</div>
+                                <div>{{user.location}}</div>
+                                <div>
+                                    <a href={{user.html_url}} target="_blank">{{user.url}}</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- ============= repositories ================= -->
-            <div class="container">
-                <div class="row align-items-center ">
-                    <div class="col-lg-12 col-md-12 col-sm-12 repositories">
-                        <div class="repoHeading">
-                            <h2>Repositories: {{user.public_repos}}</h2>
-                        </div>
-                        <div class="card" *ngFor='let repo of repos'>
-                            <div class="card-body">
-                                <div class="card-text">
-                                    <h4> <a href={{repo.html_url}} target="_blank">{{repo.name}}</a></h4>
+                <!-- ============= repositories ================= -->
+                <div class="container">
+                    <div class="row align-items-center ">
+                        <div class="col-lg-12 col-md-12 col-sm-12 repositories">
+                            <div class="repoHeading">
+                                <h2>Repositories: {{user.public_repos}}</h2>
+                            </div>
+                            <div class="card" *ngFor='let repo of repos'>
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <h4> <a href={{repo.html_url}} target="_blank">{{repo.name}}</a></h4>
+                                    </div>
+                                    <div class="card-text">{{repo.description}}</div>
+                                    <div class="card-text language-color">{{repo.language}}</div>
                                 </div>
-                                <div class="card-text">{{repo.description}}</div>
-                                <div class="card-text language-color">{{repo.language}}</div>
                             </div>
                         </div>
                     </div>
@@ -48,7 +52,4 @@
             </div>
         </div>
     </div>
- </div>
- 
- 
- 
+</body>
