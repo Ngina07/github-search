@@ -12,6 +12,8 @@ import { HttpModule } from '@angular/http';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { from } from 'rxjs';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserUppercasePipe } from './user-uppercase.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SearchComponent,
     NotFoundComponent,
     NavbarComponent,
+    UserUppercasePipe,
+    HighlightDirective,
     
   ],
   imports: [

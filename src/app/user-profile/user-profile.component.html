@@ -8,12 +8,12 @@
                     <img src={{myProfile.avatar_url}} alt="Ngina's Profile Pic" class="rounded-circle profilePic">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-12 " id= "myprofile">
-                    <h2>{{myProfile.name}}</h2>
+                    <h2 style="font-size: 30px">{{myProfile.name | userUppercase }}</h2>
                     <div class="myDetailsBlack">
                         <div>{{myProfile.bio}}</div>
                         <div>{{myProfile.location}}</div>
                         <div>
-                            <a href={{myProfile.html_url}} target="_blank">{{myProfile.url}}</a>
+                            <a href={{myProfile.html_url}} target="_blank" style="color:navy">{{myProfile.url}}</a>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <div class="repoHeading">
                         <h2>Repositories: {{myProfile.public_repos}}</h2>
                     </div>
-                    <div class="card" *ngFor='let repo of myRepos'>
+                    <div class="card" *ngFor='let repo of myRepos' id= "mydetails">
                         <div class="card-body">
                             <div class="card-text">
                                 <h4> <a href={{repo.html_url}} target="_blank">{{repo.name}}</a></h4>
